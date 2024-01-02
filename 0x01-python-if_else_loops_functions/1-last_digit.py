@@ -7,4 +7,4 @@ if lastdigi > 5:
 elif lastdigi == 0:
     print(f"Last digit of {number} is {lastdigi} and is 0")
 else:
-    print(f'''Last digit of {number} is {lastdigi} and is less than 6 and not 0''')
+    print(f"Last digit of {number} is {lastdigi} and is less than 6 and not 0")
