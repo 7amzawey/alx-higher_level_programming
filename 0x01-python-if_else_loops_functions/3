@@ -1,0 +1,3 @@
+#!/usr/bin/python3
+if i in range(ord('a'), ord('z')) & i != ('q') & i != ('e'):
+    print("{:c}".format(i), end"")
