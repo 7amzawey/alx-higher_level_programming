@@ -11,4 +11,3 @@ if __name__ == "__main__":
     if count >= 1 and count != 0:
         for i in range(count):
             print("{}: {}".format(i + 1, sys.argv[i + 1]))
-
