@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-m = range(ord("a"), ord("z"))
-print("{}".format(m))
+import string
+print(string.ascii_uppercase)
