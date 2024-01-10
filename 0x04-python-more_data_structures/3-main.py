@@ -1,4 +1,3 @@
-guillaume@ubuntu:~/0x04$ cat 3-main.py
 #!/usr/bin/python3
 common_elements = __import__('3-common_elements').common_elements
 
