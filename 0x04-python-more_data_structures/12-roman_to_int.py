@@ -5,8 +5,8 @@ def roman_to_int(roman_string):
     i = 0
     while i < len(roman_string):
         if i + 1 < len(roman_string) and values[roman_string[i]] < values[roman_string[i + 1]]:
-                sum += values[roman_string[i + 1]] - values[roman_string[i]]
-                i += 2
+            sum += values[roman_string[i + 1]] - values[roman_string[i]]
+            i += 2
         else:
             sum += values[roman_string[i]]
             i += 1
