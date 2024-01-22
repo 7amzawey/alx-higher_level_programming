@@ -21,22 +21,3 @@ def print_list(my_list, len):
 
 result = safe_function(print_list, [1, 2, 3, 4], 10)
 print("result of print_list: {}".format(result))
-
-guillaume@ubuntu:~/0x05$ ./101-main.py
-result of my_div: 5.0
-Exception: division by zero
-result of my_div: None
-1
-2
-3
-4
-Exception: list index out of range
-result of print_list: None
-guillaume@ubuntu:~/0x05$ ./101-main.py 2> /dev/null
-result of my_div: 5.0
-result of my_div: None
-1
-2
-3
-4
-result of print_list: None
