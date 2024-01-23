@@ -72,7 +72,8 @@ class Square:
         """Prints the bloody square.
         Args:
             i: is a bloody variable
-            j: is a bloody variable as well.
+            j: is a bloody variable as well.w
+            k: another goddam variable.
         """
         for k in range(0, self.__position[1]):
             print("")
