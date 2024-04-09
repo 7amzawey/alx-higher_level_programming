@@ -1,0 +1,18 @@
+Import Module:
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+    >>> say_my_name("mohamed", "Ali")
+    My name is mohamed Ali
+    >>> say_my_name("mohamed", "")
+    My name is mohamed 
+    >>> say_my_name("", "Ali")
+    My name is  Ali
+    >>> say_my_name("Mohamed")
+    My name is Mohamed 
+    >>> say_my_name(33, " ")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+    >>> say_my_name(" ", 33)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string  

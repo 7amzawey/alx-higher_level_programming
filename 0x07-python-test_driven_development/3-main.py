@@ -5,6 +5,6 @@ say_my_name("John", "Smith")
 say_my_name("Walter", "White")
 say_my_name("Bob")
 try:
-    say_my_name(12, "White")
+    say_my_name(12, "walter")
 except Exception as e:
     print(e)
