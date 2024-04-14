@@ -1,32 +1,39 @@
 Import Module:
     >>> print_square = __import__('4-print_square').print_square
+
 Test size:
     >>> print_square(2)
     ##
     ##
+
 Test print 1:
     >>> print_square(1)
-    # 
+    #
+
 Test size negative:
-    >>> print_square(1.5):
+    >>> print_square(1.5)
     Traceback (most recent call last):
-        ...
+    ...
     TypeError: size must be an integer
+
 Test size float:
-    >>> print_square(-1):
+    >>> print_square(-1)
     Traceback (most recent call last):
-        ...
+    ...
     ValueError: size must be >= 0
+
 Test size float & negative:
     >>> print_square(-1.5)
     Traceback (most recent call last):
-        ...
+    ...
     TypeError: size must be an integer
-Test not argument:
+
+Missing one argument:
     >>> print_square()
     Traceback (most recent call last):
-        ...
-    TypeError: print_square() missing 1 required postional argument: 'size'
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
 Test str:
     >>> print_square("foo")
     Traceback (most recent call last):
