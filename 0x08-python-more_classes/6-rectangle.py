@@ -14,6 +14,10 @@ class Rectangle:
         self.height = height
         Rectangle.number_of_instances += 1
 
+    def __del__(self):
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+
     @property
     def width(self):
         """property getter for the private attribute width"""
@@ -61,7 +65,3 @@ class Rectangle:
 
     def __repr__(self):
         return f'Rectangle({self.width!r}, {self.height!r})'
-
-    def __del__(self):
-        print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
