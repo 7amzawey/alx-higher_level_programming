@@ -24,10 +24,3 @@ try:
     save_to_json_file(my_set, filename)
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
-
-guillaume@ubuntu:~/0x0B$ ./5-main.py
-[TypeError] {3, 132} is not JSON serializable
-guillaume@ubuntu:~/0x0B$ cat my_list.json ; echo ""
-[1, 2, 3]
-guillaume@ubuntu:~/0x0B$ cat my_dict.json ; echo ""
-{"name": "John", "places": ["San Francisco", "Tokyo"], "id": 12, "info": {"average": 3.14, "age": 36}, "is_active": true}
