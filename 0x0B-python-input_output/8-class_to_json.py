@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-this module for a function that returns the dict description with simple data struct
+this module for a function that returns
+the dict description with simple data struct
 """
 
 

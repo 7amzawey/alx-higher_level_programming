@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-write a function that creates an object from a "json file"
+write a function that creates an object
+from a "json file"
 """
+
 
 import json
 
