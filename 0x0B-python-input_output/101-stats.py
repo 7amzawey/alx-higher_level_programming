@@ -36,6 +36,7 @@ try:
 
     if i % 10 == 0:
         printer()
+
     printer()
 except KeyboardInterrupt:
     printer()
