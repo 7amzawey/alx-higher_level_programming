@@ -3,9 +3,6 @@
 This module is for a class student
 """
 
-class_to_json = __import__('8-class_to_json').class_to_json
-
-
 class Student:
     """defining class Student"""
     def __init__(self, first_name, last_name, age):
@@ -16,4 +13,4 @@ class Student:
 
     def to_json(self):
         """returns the dict representation of the class"""
-        return (class_to_json(self))
+        return (self.__dict__)
