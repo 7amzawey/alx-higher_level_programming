@@ -16,7 +16,7 @@ int is_palindrome(listint_t **head)
 		len++;
 		copy = copy->next;
 	}
-	arr = malloc((len - 1) * sizeof(int));
+	arr = malloc(len * sizeof(int));
 	if (arr == NULL)
 	{
 		return (0);
