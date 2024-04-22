@@ -7,8 +7,18 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """this class inherits from Base"""
+    """this class inherits from Base
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """initializing the class methods
+        Args:
+            @width: is the width
+            @height: is the height
+            @x: is the x
+            @y: is the way
+            @id: is the id
+        Returns: all the attributes
+        """
         super().__init__(id)
         self.width = width
         self.height = height
