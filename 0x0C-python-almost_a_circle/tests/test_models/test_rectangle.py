@@ -18,16 +18,20 @@ class TestRectangle(unittest.TestCase):
 
     def test_class(self):
         """test Rectangle class type"""
-        self.assertEqual(str(Rectangle),
-                "<class 'models.rectangle.Rectangle'>")
+        self.assertEqual(
+            str(Rectangle), "<class 'models.rectangle.Rectangle'>")
+
     def test_inheritance(self):
         """test Rectangle inherits Base"""
         self.assertTrue(issubclass(Rectangle, Base))
+
     def test_no_args(self):
         """Test if there is no args"""
         with self.assertRaises(TypeError) as error:
             r = Rectangle()
-        msg = "Rectangle.__init__() missing 2 required positional arguments: 'width' and 'height'"
+            self.assertTrue(isinstance(r, Base))
+        msg = ("Rectangle.__init__() missing 2 required positional " +
+                       "arguments: 'width' and 'height'")
         self.assertEqual(str(error.exception), msg)
 
     def test_instantiation(self):
@@ -35,9 +39,14 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(29, 11)
         self.assertEqual(str(type(r)), "<class 'models.rectangle.Rectangle'>")
         self.assertTrue(isinstance(r, Base))
-        dic = {'_Rectangle__height': 11, '_Rectangle__width': 29, '_Rectangle__x': 0, '_Rectangle__y': 0, 'id': 1}
+        dic = {
+            '_Rectangle__height': 11,
+            '_Rectangle__width': 29,
+            '_Rectangle__x': 0,
+            '_Rectangle__y': 0,
+            'id': 1
+        }
         self.assertDictEqual(r.__dict__, dic)
-
 
         with self.assertRaises(TypeError) as error:
             r = Rectangle("1", 1)
@@ -57,4 +66,38 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError) as error:
             r = Rectangle(1, -1)
         msg = "height must be > 0"
+        self.assertEqual(str(error.exception), msg)
+
+    def test_instantiation_2(self):
+        """Test instantiation 2"""
+        r = Rectangle(1, 2, 3, 4)
+        dic = {
+                '_Rectangle__height': 2,
+                '_Rectangle__width': 1,
+                '_Rectangle__x': 3,
+                '_Rectangle__y': 4,
+                'id': 1
+        }
+        self.assertEqual(str(type(r)), "<class 'models.rectangle.Rectangle'>")
+        self.assertTrue(isinstance(r, Base))
+        self.assertDictEqual(r.__dict__, dic)
+
+        with self.assertRaises(TypeError) as error:
+            r = Rectangle(1, 1, "1")
+        msg = "x must be an integer"
+        self.assertEqual(str(error.exception), msg)
+
+        with self.assertRaises(TypeError) as error:
+            r = Rectangle(1, 1, 1, "1")
+        msg = "y must be an integer"
+        self.assertEqual(str(error.exception), msg)
+
+        with self.assertRaises(ValueError) as error:
+            r = Rectangle(1, 1, -1)
+        msg = "x must be >= 0"
+        self.assertEqual(str(error.exception), msg)
+
+        with self.assertRaises(ValueError) as error:
+            r = Rectangle(1, 1, 1, -1)
+        msg = "y must be >= 0"
         self.assertEqual(str(error.exception), msg)
