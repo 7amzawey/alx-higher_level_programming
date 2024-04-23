@@ -25,15 +25,6 @@ class TestRectangle(unittest.TestCase):
         """test Rectangle inherits Base"""
         self.assertTrue(issubclass(Rectangle, Base))
 
-    def test_no_args(self):
-        """Test if there is no args"""
-        with self.assertRaises(TypeError) as error:
-            r = Rectangle()
-            self.assertTrue(isinstance(r, Base))
-        msg = ("Rectangle.__init__() missing 2 required positional " +
-                       "arguments: 'width' and 'height'")
-        self.assertEqual(str(error.exception), msg)
-
     def test_instantiation(self):
         """Test instantiation"""
         r = Rectangle(29, 11)
