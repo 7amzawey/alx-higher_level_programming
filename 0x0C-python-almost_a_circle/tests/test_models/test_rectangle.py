@@ -21,9 +21,14 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(
             str(Rectangle), "<class 'models.rectangle.Rectangle'>")
 
-    def test_inheritance(self):
-        """test Rectangle inherits Base"""
-        self.assertTrue(issubclass(Rectangle, Base))
+    def test_C_constructor_no_args(self):
+        '''Tests constructor signature.'''
+        with self.assertRaises(TypeError) as e:
+            r = Rectangle()
+            self.assertTrue(isinstance(r, Base))
+        s = "Rectangle.__init__() missing 2 required positional arguments: 'width' \
+and 'height'"
+        self.assertEqual(str(e.exception), s)
 
     def test_instantiation(self):
         """Test instantiation"""
