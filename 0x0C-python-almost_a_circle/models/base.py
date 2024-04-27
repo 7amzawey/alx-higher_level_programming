@@ -4,6 +4,7 @@ this module is for class Base
 """
 
 import json
+import csv
 
 
 class Base:
@@ -71,3 +72,43 @@ class Base:
         with open(f, "r", encoding="utf-8") as f2:
             data = cls.from_json_string(f2.read())
             return [cls.create(**d) for d in data[0]]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """this one seriliazes in CSV which basically means that i am going 
+        am going to turn this class list of objects to a json-like string
+        """
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if list_objs is not None:
+            if cls is Rectangle:
+                list_objs = [[o.id, o.width, o.height, o.x, o.y] for o in list_objs]
+            else:
+                list_objs = [[o.id, o.size, o.x, o.y] for o in list_objs]
+        classname = cls.__name__
+        filename = "{}.csv".format(classname)
+        with open(filename, "w") as file:
+            writer = csv.writer(file)
+            writer.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """this file deserilizas in csv so it's going to load from a string to make a list"""
+        from models.square import Square
+        from models.rectangle import Rectangle
+        l = []
+        with open("{}.csv".format(cls.__name__), "r") as file:
+            reader = csv.reader(file)
+            for row in reader:
+                row = [int(r) for r in row]
+                if cls is Rectangle:
+                    d = { 
+                        "id": row[0], "width": row[1], "height":row[2],
+                        "x": row[3], "y": row[4]
+                        }
+                else:
+                    d = {
+                        "id": row[0], "size":row[1], "x": row[2], "y": row[3]
+                        }
+                l.append(cls.create(**d))
+        return l
