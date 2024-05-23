@@ -1,3 +1,5 @@
 -- script that displays the average temperature by city orderd by temprature
-SELECT state, MAX(value) as max_temp;
+SELECT state, MAX(value) as max_temp
 FROM temperatures
+GROUP BY state
+ORDER BY state ASC;
