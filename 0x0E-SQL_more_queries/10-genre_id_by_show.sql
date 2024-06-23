@@ -1,6 +1,6 @@
 -- this script lists all the shows contained in hbtn_0d_tvshows
-select shows.title, genres.genre_id
-from tv_shows shows
-join tv_show_genres genres
-on shows.id = genres.show_id
-order by shows.title, genres.genre_id;
+SELECT shows.title, genres.genre_id
+FROM tv_shows shows
+JOIN tv_show_genres genres
+ON shows.id = genres.show_id
+ORDER BY shows.title, genres.genre_id;
