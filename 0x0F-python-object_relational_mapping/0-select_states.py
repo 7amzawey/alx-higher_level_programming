@@ -2,12 +2,17 @@
 import MySQLdb
 import sys
 
+
 def main():
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    conn = MySQLdb.connect(host="localhost", user=username, passwd=password, db=database)
+    conn = MySQLdb.connect(
+            host="localhost",
+            user=username,
+            passwd=password,
+            db=database)
 
     cursor = conn.cursor()
 
@@ -20,6 +25,7 @@ def main():
 
     cursor.close()
     conn.close()
+
 
 if __name__ == "__main__":
     main()
