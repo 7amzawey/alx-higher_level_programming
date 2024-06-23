@@ -12,14 +12,14 @@ if __name__ == '__main__':
                          db=argv[3])
     cur = db.cursor()
     cur.execute(
-            """SELECT c.name
+            """SELECT GROUP_CONCAT(c.name SEPARATOR ', ')
             FROM cities AS c
             JOIN states AS s ON s.id = c.state_id
             WHERE s.name LIKE BINARY %s
             ORDER BY c.id""", [argv[4]]
             )
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    row = cur.fetchone()
+    if row and row[0]:
+        print(row[0])
     cur.close()
     db.close()
