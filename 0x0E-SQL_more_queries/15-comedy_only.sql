@@ -6,4 +6,4 @@ ON shows.id = show_genres.show_id
 JOIN tv_genres genres
 ON show_genres.genre_id = genres.id
 WHERE genres.name = 'Comedy'
-ORDER BY name ASC;
+ORDER BY shows.title ASC;
