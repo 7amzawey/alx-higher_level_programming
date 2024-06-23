@@ -13,10 +13,10 @@ if __name__ == '__main__':
     cur = db.cursor()
     cur.execute(
             """SELECT c.name
-            FROM states AS s
-            JOIN cities AS c ON s.id = c.state_id
-            WHERE s.name = '{}' 
-            ORDER BY c.id""".format(argv(4))
+            FROM cities AS c
+            JOIN states AS s ON s.id = c.state_id
+            WHERE s.name LIKE BINARY %s
+            ORDER BY c.id""", [argv[4]]
             )
     rows = cur.fetchall()
     for row in rows:
