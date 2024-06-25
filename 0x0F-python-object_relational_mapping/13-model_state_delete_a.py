@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-this module is for a function that prints the first object of a database
+this module is for a function that delets everystate with an a
 """
 
 from sqlalchemy.orm import sessionmaker
