@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+this module is a MySQLalchemy Module to define the declarative base class
+which State is a class in it
+"""
+
 
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
