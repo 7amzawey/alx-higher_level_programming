@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     session = Session()
 
-    states = session.query(State).filter_by(name = (s_name)).first()
+    states = session.query(State).filter_by(name=(s_name)).first()
     if not states:
         print('Not found')
     else:
