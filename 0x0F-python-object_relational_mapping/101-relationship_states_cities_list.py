@@ -26,6 +26,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     new_city = City(name="mo", state_id=100)
+
     states = session.query(
             State).options(
                     joinedload(State.cities)).all()
