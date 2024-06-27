@@ -29,6 +29,6 @@ if __name__ == "__main__":
     for city in cities:
         state = session.query(State).filter_by(id=city.state_id).first()
         if state:
-            print(f"{state.name}: ({state.id}) {city.name}")
+            print(f"{state.name}: ({city.id}) {city.name}")
 
     session.close()

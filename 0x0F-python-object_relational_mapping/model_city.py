@@ -10,7 +10,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from model_state import State, Base
 
-Base = declarative_base()
 
 class City(Base):
     """
