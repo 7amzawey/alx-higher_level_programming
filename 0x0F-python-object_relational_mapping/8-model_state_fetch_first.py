@@ -28,6 +28,6 @@ if __name__ == "__main__":
     states = session.query(State).first()
 
     if not states:
-        print("Nothing\n")
+        print("Nothing")
     else:
         print(f"{states.id}: {states.name}")
