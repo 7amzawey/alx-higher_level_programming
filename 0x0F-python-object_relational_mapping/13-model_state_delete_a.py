@@ -9,6 +9,7 @@ from model_state import Base, State
 from sqlalchemy import create_engine
 import sys
 
+
 def delete_states_with_a(username, password, database):
     engine = create_engine(
         f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}',
@@ -27,6 +28,7 @@ def delete_states_with_a(username, password, database):
 
     session.commit()
     session.close()
+
 
 if __name__ == "__main__":
     username = sys.argv[1]
