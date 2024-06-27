@@ -19,7 +19,9 @@ if __name__ == '__main__':
             ORDER BY c.id""", [argv[4]]
             )
     row = cur.fetchone()
-    if row and row[0]:
+    if row[0]:
         print(row[0])
+    else:
+        print()
     cur.close()
     db.close()
