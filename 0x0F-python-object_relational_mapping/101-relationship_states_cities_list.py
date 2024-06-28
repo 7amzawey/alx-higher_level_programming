@@ -1,26 +1,40 @@
 #!/usr/bin/python3
-"""101-relationship_states_cities_list module
-lists all State objects, and corresponding City objects,
-contained in the database hbtn_0e_101_usa
+"""
+this is gonna create the state California with the city San Francisco
 """
 
-import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-
-from relationship_state import Base, State
+from sqlalchemy.orm import sessionmaker, joinedload
+from relationship_state import State, Base
 from relationship_city import City
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
+    import sys
+
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
     engine = create_engine(
-            'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-                sys.argv[1], sys.argv[2], sys.argv[3]),
-            pool_pre_ping=True)
+            f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}',
+            pool_pre_ping=True
+            )
+
     Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).all()
-    for state in states:
-        print(f'{state.id}: {state.name}')
+    new_city = City(name="mo", state_id=100)
+
+    states = session.query(
+            State).options(
+                    joinedload(State.cities)).all()
+
+    states_sorted = sorted(states, key=lambda s: (s.id))
+    for state in states_sorted:
+        print(f"{state.id}: {state.name}")
+        ciites_sorted = sorted(state.cities, key=lambda c: c.id)
         for city in state.cities:
-            print(f'    {city.id}: {city.name}')
+            print(f"    {city.id}: {city.name}")
+    session.close()
