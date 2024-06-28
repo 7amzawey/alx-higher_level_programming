@@ -22,19 +22,4 @@ class State(Base):
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
 
-    cities = relationship(
-            "City", back_populates="state", cascade="all, delete-orphan")
-
-
-if __name__ == "__main__":
-
-    import sys
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
-    engine = create_engine(
-            f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}',
-            pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+    cities = relationship("City", backref="state", cascade="all")

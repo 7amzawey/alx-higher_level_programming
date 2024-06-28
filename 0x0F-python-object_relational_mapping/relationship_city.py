@@ -24,19 +24,3 @@ class City(Base):
             nullable=False)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-
-    state = relationship("State", back_populates="cities")
-
-
-if __name__ == "__main__":
-
-    import sys
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
-    engine = create_engine(
-            f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}',
-            pool_pre_ping=True)
-    Base.metadata.create_all(engine)
