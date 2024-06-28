@@ -32,7 +32,7 @@ if __name__ == "__main__":
                     joinedload(State.cities)).all()
 
     states_sorted = sorted(
-            states, key=lambda s: (s.id, [c.id for c in s.cities]))
+            states, key=lambda s: (s.id, ([c.id for c in s.cities])))
     for state in states_sorted:
         print(f"{state.id}: {state.name}")
         for city in state.cities:
