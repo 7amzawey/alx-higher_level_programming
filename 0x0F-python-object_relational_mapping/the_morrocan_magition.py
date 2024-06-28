@@ -4,7 +4,7 @@ this is gonna create the state California with the city San Francisco
 """
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, joinedload
 from relationship_state import State, Base
 from relationship_city import City
 
@@ -28,9 +28,6 @@ if __name__ == "__main__":
     new_city = City(name="mo", state_id=100)
 
     states = session.query(State).all()
-
-    for state in states:
-        print(f"{state.id}: {state.name}")
-        for city in state.cities:
-            print(f"    {city.id}: {city.name}")
+    
+    [print(state.cities[0].__dict__) for state in states]
     session.close()
