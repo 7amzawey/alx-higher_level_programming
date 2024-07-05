@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""this module is for fectching a  specific url"""
+"""this module is for fetching a specific URL"""
 
 if __name__ == '__main__':
     import requests
