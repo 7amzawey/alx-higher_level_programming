@@ -9,4 +9,4 @@ if __name__ == '__main__':
         decoded_resp = response.text
         print("Body response:")
         print(f"    - type: {type(decoded_resp)}")
-        print(f"    - content: {response}")
+        print(f"    - content: {decoded_resp}")
