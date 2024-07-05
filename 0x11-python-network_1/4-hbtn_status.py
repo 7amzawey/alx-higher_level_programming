@@ -5,8 +5,8 @@ if __name__ == '__main__':
     import requests
 
     url = 'https://alx-intranet.hbtn.io/status'
-    with requests.get(url) as response:
-        decoded_resp = response.text
-        print("Body response:")
-        print(f"    - type: {type(decoded_resp)}")
-        print(f"    - content: {decoded_resp}")
+    response = requests.get(url)
+    decoded_resp = response.text
+    print("Body response:")
+    print(f"    - type: {type(decoded_resp)}")
+    print(f"    - content: {decoded_resp}")
