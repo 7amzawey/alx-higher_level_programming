@@ -9,9 +9,9 @@ if __name__ == '__main__':
     url = sys.argv[1]
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
+        response.raise_for_status()
 
         print(response.text)
 
-    except requests.exceptions.HTTPError as e:  # Corrected to `requests.exceptions.HTTPError`
-        print(f"Error code: {e.response.status_code}")  # Corrected `e.response.stauts_code` to `e.response.status_code`
+    except requests.exceptions.HTTPError as e:
+        print(f"Error code: {e.response.status_code}")
