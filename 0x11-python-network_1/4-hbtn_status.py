@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""this module is for fetching a specific URL"""
-
+"""4-hbtn_status
+fetches https://alx-intranet.hbtn.io/status
+"""
 
 if __name__ == '__main__':
     import requests
 
-    url = 'https://alx-intranet.hbtn.io/status'
-    response = requests.get(url)
-    decoded_resp = response.text
+    url = "https://alx-intranet.hbtn.io/status"
+    res = requests.get(url)
     print("Body response:")
-    print(f"    - type: {type(decoded_resp)}")
-    print(f"    - content: {decoded_resp}")
+    print(f"    - type: {type(res.text)}")
+    print(f"    - content: {res.text}")
