@@ -15,6 +15,7 @@ if __name__ == '__main__':
             "Authorization": f"Bearer {sys.argv[2]}",
             "Accept": "application/vnd.github+json"
             }
-    response = requests.get(f"https://api.github.com/user/{sys.argv[1]}", headers=headers)
+    response = requests.get(
+            f"https://api.github.com/user/{sys.argv[1]}", headers=headers)
     json_response = response.json()
     print(f"{json_response.get('id')}")
