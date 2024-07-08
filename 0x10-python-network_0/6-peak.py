@@ -14,6 +14,9 @@ def find_peak(list_of_integers):
     if len(list_of_integers) == 0:
         return (None)
 
-    sorted_list = sorted(list_of_integers)
-    length = len(list_of_integers)
-    return sorted_list[length - 1]
+    peak = list_of_integers[0]
+    for num in list_of_integers:
+        if num > peak:
+            peak = num
+
+    return peak
