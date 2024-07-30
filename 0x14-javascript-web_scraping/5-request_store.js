@@ -11,7 +11,7 @@ request.get(apiUrl, (error, response, body) => {
   }
   fs.writeFile(file, body, 'utf-8', (err) => {
     if (err) {
-        console.log(err);
+      console.log(err);
     }
   });
 });
